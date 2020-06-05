@@ -46,7 +46,7 @@ RUN apt-get update && apt-get install -y \
     curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer && \
     chmod +x /usr/local/bin/composer && \
-    composer self-update --preview && \
+    composer self-update && \
     # Node
     curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh && \
     bash nodesource_setup.sh && \
