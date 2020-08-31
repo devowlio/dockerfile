@@ -55,11 +55,10 @@ RUN apt-get update && apt-get install -y \
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     apt-get update && apt-get install -y yarn && \
-    # Docker and Docker-Compose (via Python, PiP)
+    # Docker and Docker-Compose
     curl -sSL https://get.docker.com/ | sh && \
-    pip install docker-compose && \
-    # docker-compose, PiP, Python and Debian Buster (https://git.io/JUql8)
-    apt-get install -y python-backports.ssl-match-hostname && \
+    curl -L "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
+    chmod +x /usr/local/bin/docker-compose && \
     # WP CLI
     curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     php wp-cli.phar --info && \
