@@ -59,7 +59,7 @@ RUN apt-get update && apt-get install -y \
     curl -sSL https://get.docker.com/ | sh && \
     pip install docker-compose && \
     # docker-compose, PiP, Python and Debian Buster (https://git.io/JUql8)
-    apt install python-backports.ssl-match-hostname && \
+    apt-get install -y python-backports.ssl-match-hostname && \
     # WP CLI
     curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     php wp-cli.phar --info && \
