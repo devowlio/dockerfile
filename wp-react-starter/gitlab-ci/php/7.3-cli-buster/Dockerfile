@@ -67,7 +67,9 @@ RUN apt-get update && apt-get install -y \
     # PHP Scoper
     curl -O -L https://github.com/humbug/php-scoper/releases/download/0.13.1/php-scoper.phar && \
     chmod +x php-scoper.phar && \
-    mv php-scoper.phar /usr/local/bin/php-scoper
+    mv php-scoper.phar /usr/local/bin/php-scoper && \
+    # ets: Command output timestamper
+    wget -c https://github.com/zmwangx/ets/releases/download/$(curl -s https://api.github.com/repos/zmwangx/ets/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')/ets_$(curl -s https://api.github.com/repos/zmwangx/ets/releases/latest | grep -oP '"tag_name": "v\K(.*)(?=")')_linux_$(dpkg --print-architecture).tar.gz -O - | tar -xz -C /usr/local/bin
 
 RUN npm install -g \
     # Global installations of npm packages
