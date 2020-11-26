@@ -20,6 +20,8 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     libpng-dev \
     libpng16-16 \
+    # PHP mbstring extension (https://git.io/Jk9nJ)
+    libonig-dev \
     # Allow simple FTP uploads
     lftp \
     wput \
@@ -42,7 +44,8 @@ RUN apt-get update && apt-get install -y \
     # libssl-dev is needed for Phar (https://raspberrypi.stackexchange.com/a/36379)
     libssl-dev && \
     # PHP dependencies (https://git.io/JvAFa)
-    docker-php-ext-install -j4 phar json mbstring tokenizer && \
+    docker-php-ext-install -j3 phar json tokenizer && \
+    libonig-dev && \
     # xdebug (can be activated with `docker-php-ext-enable xdebug`, not by default because it slows down PHP)
     pecl install xdebug && \
     # Composer
