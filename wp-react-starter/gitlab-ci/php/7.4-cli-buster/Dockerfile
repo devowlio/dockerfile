@@ -45,7 +45,6 @@ RUN apt-get update && apt-get install -y \
     libssl-dev && \
     # PHP dependencies (https://git.io/JvAFa)
     docker-php-ext-install -j3 phar json tokenizer && \
-    libonig-dev && \
     # xdebug (can be activated with `docker-php-ext-enable xdebug`, not by default because it slows down PHP)
     pecl install xdebug && \
     # Composer
