@@ -46,7 +46,7 @@ RUN apt-get update && apt-get install -y \
     # PHP dependencies (https://git.io/JvAFa)
     docker-php-ext-install -j3 phar json tokenizer && \
     # xdebug (can be activated with `docker-php-ext-enable xdebug`, not by default because it slows down PHP)
-    pecl install xdebug && \
+    pecl install xdebug-2.9.8 && \
     # Composer
     curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer && \
