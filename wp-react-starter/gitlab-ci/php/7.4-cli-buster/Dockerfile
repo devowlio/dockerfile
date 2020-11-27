@@ -70,7 +70,7 @@ RUN apt-get update && apt-get install -y \
     chmod +x wp-cli.phar && \
     mv wp-cli.phar /usr/local/bin/wp && \
     # PHP Scoper
-    curl -O -L https://github.com/humbug/php-scoper/releases/download/0.13.1/php-scoper.phar && \
+    curl -O -L https://github.com/humbug/php-scoper/releases/download/0.13.9/php-scoper.phar && \
     chmod +x php-scoper.phar && \
     mv php-scoper.phar /usr/local/bin/php-scoper && \
     # ets: Command output timestamper
