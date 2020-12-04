@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     libpng-dev \
     libpng16-16 \
+    gettext \
     # PHP mbstring extension (https://git.io/Jk9nJ)
     libonig-dev \
     # Allow simple FTP uploads
