@@ -42,6 +42,11 @@ RUN apt-get update && apt-get install -y \
     libasound2 \
     libxtst6 \
     xauth \
+    # Docker (APT)
+    ca-certificates \
+    gnupg \
+    lsb-release \
+    apt-transport-https \
     # libssl-dev is needed for Phar (https://raspberrypi.stackexchange.com/a/36379)
     libssl-dev && \
     # PHP dependencies (https://git.io/JvAFa)
@@ -63,8 +68,7 @@ RUN apt-get update && apt-get install -y \
     apt-get update && apt-get install -y yarn && \
     # Docker and Docker-Compose
     curl -sSL https://get.docker.com/ | sh && \
-    curl -L "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
-    chmod +x /usr/local/bin/docker-compose && \
+    sudo apt-get install docker-compose-plugin && \
     # WP CLI
     curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     php wp-cli.phar --info && \
